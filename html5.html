@@ -35,8 +35,45 @@
     </aside>
     <div class="main-content">
         <h2>HTML5</h2>
-        <!-- todo -->
+        <h3>Web Storage</h3>
+        <input id="storageInput" type="text" placeholder="Írj be valamit...">
+        <button onclick="saveToStorage()">Mentés</button>
+        <button onclick="loadFromStorage()">Betöltés</button>
+        <span id="storageResult"></span>
+
+        <h3>Web Worker</h3>
+        <button onclick="startWorker()">Számolás indítása</button>
+        <span id="workerResult"></span>
+
+        <h3>Server-Sent Events</h3>
+        <button onclick="showSseInfo()">SSE bemutató</button>
+        <span id="sseResult"></span>
+
+        <h3>Geolocation API</h3>
+        <button onclick="getLocation()">Helyzet lekérése</button>
+        <span id="geoResult"></span>
+
+        <h3>Drag and Drop API</h3>
+        <div id="dragDemo">
+            <div id="drag1" draggable="true"
+                style="width:60px;height:60px;background:#2196f3;color:#fff;text-align:center;line-height:60px;cursor:move;"
+                ondragstart="drag(event)">Húzz</div>
+            <div id="dropZone" ondrop="drop(event)" ondragover="allowDrop(event)"
+                style="width:120px;height:60px;border:2px dashed #2196f3;margin-top:10px;text-align:center;line-height:60px;">
+                Dobd ide</div>
+        </div>
+
+        <h3>Canvas</h3>
+        <canvas id="myCanvas" width="200" height="100" style="border:1px solid #333;"></canvas>
+
+        <h3>SVG</h3>
+        <svg width="200" height="100">
+            <rect x="10" y="10" width="60" height="60" fill="#2196f3" />
+            <circle cx="120" cy="40" r="30" fill="#4caf50" />
+            <text x="60" y="90" font-size="18" fill="#333">SVG példa</text>
+        </svg>
     </div>
+    <script src="html5.js"></script>
     <footer>
         Készítők: Mózer Máté (XN87YG)
     </footer>

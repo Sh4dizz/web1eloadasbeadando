@@ -35,9 +35,38 @@
         </ul>
     </aside>
     <div class="main-content">
-        <h2>AJAXa</h2>
-        <!-- todo -->
+        <h2>AJAX</h2>
+        <form id="createForm">
+            <h3>Új rekord létrehozása</h3>
+            <input type="text" name="name" placeholder="Név" required maxlength="30">
+            <input type="text" name="height" placeholder="Magasság" required maxlength="30">
+            <input type="text" name="weight" placeholder="Súly" required maxlength="30">
+            <button type="submit">Létrehozás</button>
+        </form>
+        <hr>
+        <form id="updateForm">
+            <h3>Rekord módosítása</h3>
+            <input type="text" name="id" placeholder="ID" required>
+            <button type="button" id="getDataForId">Adatok betöltése</button><br>
+            <input type="text" name="name" placeholder="Név" required maxlength="30">
+            <input type="text" name="height" placeholder="Magasság" required maxlength="30">
+            <input type="text" name="weight" placeholder="Súly" required maxlength="30">
+            <button type="submit">Módosítás</button>
+        </form>
+        <hr>
+        <form id="deleteForm">
+            <h3>Rekord törlése</h3>
+            <input type="text" name="id" placeholder="ID" required>
+            <button type="submit">Törlés</button>
+        </form>
+        <hr>
+        <form id="readForm">
+            <h3>Adatok lekérdezése</h3>
+            <button type="submit">Lekérdezés</button>
+        </form>
+        <div id="ajaxResult"></div>
     </div>
+    <script src="ajax.js"></script>
     <footer>
         Készítők: Mózer Máté (XN87YG)
     </footer>

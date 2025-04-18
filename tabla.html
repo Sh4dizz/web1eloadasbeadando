@@ -35,8 +35,42 @@
     </aside>
     <div class="main-content">
         <h2>Táblázat (CRUD példa)</h2>
-        <!-- todo -->
+        <form id="addForm">
+            <label>
+                Név:
+                <input type="text" name="name" required minlength="2" maxlength="20">
+            </label>
+            <label>
+                Kor:
+                <input type="number" name="age" required min="1" max="120">
+            </label>
+            <label>
+                Város:
+                <input type="text" name="city" required minlength="2" maxlength="20">
+            </label>
+            <label>
+                Email:
+                <input type="email" name="email" required maxlength="30">
+            </label>
+            <button type="submit">Hozzáadás</button>
+        </form>
+        <input type="text" id="searchInput" placeholder="Keresés...">
+        <table id="crudTable" border="1">
+            <thead>
+                <tr>
+                    <th data-col="name">Név</th>
+                    <th data-col="age">Kor</th>
+                    <th data-col="city">Város</th>
+                    <th data-col="email">Email</th>
+                    <th>Művelet</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dinamikus tartalom -->
+            </tbody>
+        </table>
     </div>
+    <script src="tabla.js"></script>
     <footer>
         Készítők: Mózer Máté (XN87YG)
     </footer>
