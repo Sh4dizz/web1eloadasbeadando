@@ -6,75 +6,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML5 - Web-programozás-1 Előadás Házi feladat</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @media (min-width: 992px) {
+            .sticky-sidebar {
+                position: sticky;
+                top: 1rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <header>
+    <header class="bg-dark text-white text-center py-3 mb-3">
         <h1>Web-programozás-1 Előadás Házi feladat</h1>
     </header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Kezdőlap</a></li>
-            <li><a href="tabla.html">Táblázat</a></li>
-            <li><a href="html5.html" class="active">HTML5</a></li>
-            <li><a href="chartjs.html">ChartJS</a></li>
-            <li><a href="ajax.html">AJAX</a></li>
-            <li><a href="oojs.html">OOJS</a></li>
-        </ul>
-    </nav>
-    <aside>
-        <h3>Menü</h3>
-        <ul>
-            <li><a href="index.html">Kezdőlap</a></li>
-            <li><a href="tabla.html">Táblázat</a></li>
-            <li><a href="html5.html">HTML5</a></li>
-            <li><a href="chartjs.html">ChartJS</a></li>
-            <li><a href="ajax.html">AJAX</a></li>
-            <li><a href="oojs.html">OOJS</a></li>
-        </ul>
-    </aside>
-    <div class="main-content">
-        <h2>HTML5</h2>
-        <h3>Web Storage</h3>
-        <input id="storageInput" type="text" placeholder="Írj be valamit...">
-        <button onclick="saveToStorage()">Mentés</button>
-        <button onclick="loadFromStorage()">Betöltés</button>
-        <span id="storageResult"></span>
-
-        <h3>Web Worker</h3>
-        <button onclick="startWorker()">Számolás indítása</button>
-        <span id="workerResult"></span>
-
-        <h3>Server-Sent Events</h3>
-        <button onclick="showSseInfo()">SSE bemutató</button>
-        <span id="sseResult"></span>
-
-        <h3>Geolocation API</h3>
-        <button onclick="getLocation()">Helyzet lekérése</button>
-        <span id="geoResult"></span>
-
-        <h3>Drag and Drop API</h3>
-        <div id="dragDemo">
-            <div id="drag1" draggable="true"
-                style="width:60px;height:60px;background:#2196f3;color:#fff;text-align:center;line-height:60px;cursor:move;"
-                ondragstart="drag(event)">Húzz</div>
-            <div id="dropZone" ondrop="drop(event)" ondragover="allowDrop(event)"
-                style="width:120px;height:60px;border:2px dashed #2196f3;margin-top:10px;text-align:center;line-height:60px;">
-                Dobd ide</div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Menü</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Menü">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Kezdőlap</a></li>
+                    <li class="nav-item"><a href="tabla.html" class="nav-link">Táblázat</a></li>
+                    <li class="nav-item"><a href="html5.html" class="nav-link active">HTML5</a></li>
+                    <li class="nav-item"><a href="chartjs.html" class="nav-link">ChartJS</a></li>
+                    <li class="nav-item"><a href="ajax.html" class="nav-link">AJAX</a></li>
+                    <li class="nav-item"><a href="oojs.html" class="nav-link">OOJS</a></li>
+                </ul>
+            </div>
         </div>
-
-        <h3>Canvas</h3>
-        <canvas id="myCanvas" width="200" height="100" style="border:1px solid #333;"></canvas>
-
-        <h3>SVG</h3>
-        <svg width="200" height="100">
-            <rect x="10" y="10" width="60" height="60" fill="#2196f3" />
-            <circle cx="120" cy="40" r="30" fill="#4caf50" />
-            <text x="60" y="90" font-size="18" fill="#333">SVG példa</text>
-        </svg>
+    </nav>
+    <div class="container-fluid">
+        <div class="row flex-lg-nowrap">
+            <aside class="col-12 col-lg-3 mb-3 sticky-sidebar">
+                <div class="card shadow-sm">
+                    <div class="card-header fw-bold">
+                        Menü
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a href="index.html">Kezdőlap</a></li>
+                        <li class="list-group-item"><a href="tabla.html">Táblázat</a></li>
+                        <li class="list-group-item"><a href="html5.html">HTML5</a></li>
+                        <li class="list-group-item"><a href="chartjs.html">ChartJS</a></li>
+                        <li class="list-group-item"><a href="ajax.html">AJAX</a></li>
+                        <li class="list-group-item"><a href="oojs.html">OOJS</a></li>
+                    </ul>
+                </div>
+            </aside>
+            <main class="col-12 col-lg-9 px-3">
+                <h2 class="mb-4">HTML5</h2>
+                <div class="mb-4">
+                    <h3>Web Storage</h3>
+                    <div class="input-group mb-2">
+                        <input id="storageInput" type="text" class="form-control" placeholder="Írj be valamit...">
+                        <button onclick="saveToStorage()" class="btn btn-primary">Mentés</button>
+                        <button onclick="loadFromStorage()" class="btn btn-secondary">Betöltés</button>
+                    </div>
+                    <span id="storageResult" class="text-success"></span>
+                </div>
+                <div class="mb-4">
+                    <h3>Web Worker</h3>
+                    <button onclick="startWorker()" class="btn btn-primary mb-2">Számolás indítása</button>
+                    <span id="workerResult" class="ms-2"></span>
+                </div>
+                <div class="mb-4">
+                    <h3>Server-Sent Events</h3>
+                    <button onclick="showSseInfo()" class="btn btn-primary mb-2">SSE bemutató</button>
+                    <span id="sseResult" class="ms-2"></span>
+                </div>
+                <div class="mb-4">
+                    <h3>Geolocation API</h3>
+                    <button onclick="getLocation()" class="btn btn-primary mb-2">Helyzet lekérése</button>
+                    <span id="geoResult" class="ms-2"></span>
+                </div>
+                <div class="mb-4">
+                    <h3>Drag and Drop API</h3>
+                    <div id="dragDemo" class="d-flex flex-column align-items-start">
+                        <div id="drag1" draggable="true" class="mb-2 d-flex align-items-center justify-content-center"
+                            style="width:60px;height:60px;background:#2196f3;color:#fff;text-align:center;line-height:60px;cursor:move;"
+                            ondragstart="drag(event)">Húzz</div>
+                        <div id="dropZone" ondrop="drop(event)" ondragover="allowDrop(event)"
+                            class="d-flex align-items-center justify-content-center"
+                            style="width:120px;height:60px;border:2px dashed #2196f3;margin-top:10px;text-align:center;line-height:60px;">
+                            Dobd ide</div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <h3>Canvas</h3>
+                    <canvas id="myCanvas" width="200" height="100" style="border:1px solid #333;"></canvas>
+                </div>
+                <div class="mb-4">
+                    <h3>SVG</h3>
+                    <svg width="200" height="100">
+                        <rect x="10" y="10" width="60" height="60" fill="#2196f3" />
+                        <circle cx="120" cy="40" r="30" fill="#4caf50" />
+                        <text x="60" y="90" font-size="18" fill="#333">SVG példa</text>
+                    </svg>
+                </div>
+            </main>
+        </div>
     </div>
     <script src="html5.js"></script>
-    <footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <footer class="bg-dark text-white text-center py-3 mt-4">
         Készítők: Mózer Máté (XN87YG)
     </footer>
 </body>
